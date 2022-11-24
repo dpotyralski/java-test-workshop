@@ -14,10 +14,8 @@ class _5_JUnitAssertExceptionsTest {
 
     @Test
     void testException() {
-        //when
-        UnsupportedOperationException e = assertThrows(UnsupportedOperationException.class, () -> exceptionProvider.operationUnsupported());
-        //then
-        assertEquals("Operation is not supported!", e.getMessage());
+        //expect
+        assertThrows(UnsupportedOperationException.class, () -> exceptionProvider.operationUnsupported());
     }
 
     @Test

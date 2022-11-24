@@ -16,12 +16,12 @@ class _7_JUnitAssertTimeoutsTest {
 
     @Test
     void testTimeoutsAssertions() {
-        assertTimeout(Duration.ofSeconds(5), () -> timeoutResource.calculateImpact(2));
+        assertTimeout(Duration.ofSeconds(5), () -> timeoutResource.calculateImpact(1));
     }
 
     @Test
     void testTimeoutsPreemptivelyAssertions() {
-        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> timeoutResource.calculateImpact(2));
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> timeoutResource.calculateImpact(1));
     }
 
     @Test

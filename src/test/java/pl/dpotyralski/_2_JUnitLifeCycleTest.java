@@ -6,31 +6,32 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestInstance;
 
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class _2_JUnitLifeCycleTest {
 
     SubjectUnderTest sub = new SubjectUnderTest();
 
-    @BeforeAll
-    public static void init() {
-        System.out.println("test init!");
-    }
-
-    @AfterAll
-    public static void cleanup() {
-        System.out.println("test cleanup!");
-    }
-
-    @BeforeEach
-    public void triggeredBeforeEach(TestInfo testInfo) {
-        System.out.println("starting before test: " + testInfo.getDisplayName());
-    }
-
-    @AfterEach
-    public void triggeredAfterEach(TestInfo testInfo) {
-        System.out.println("started after test: " + testInfo.getDisplayName());
-    }
+//    @BeforeAll
+//    public static void init() {
+//        System.out.println("test init!");
+//    }
+//
+//    @AfterAll
+//    public static void cleanup() {
+//        System.out.println("test cleanup!");
+//    }
+//
+//    @BeforeEach
+//    public void triggeredBeforeEach(TestInfo testInfo) {
+//        System.out.println("starting before test: " + testInfo.getDisplayName());
+//    }
+//
+//    @AfterEach
+//    public void triggeredAfterEach(TestInfo testInfo) {
+//        System.out.println("started after test: " + testInfo.getDisplayName());
+//    }
 
     @Test
     void test1() {

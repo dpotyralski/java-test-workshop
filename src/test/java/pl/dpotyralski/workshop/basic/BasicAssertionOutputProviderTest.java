@@ -1,11 +1,12 @@
 package pl.dpotyralski.workshop.basic;
 
 import org.junit.jupiter.api.Test;
-import pl.dpotyralski.workshop.basic.BasicAssertionOutputProvider;
+import org.junit.jupiter.api.TestInstance;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class BasicAssertionOutputProviderTest {
-
-    BasicAssertionOutputProvider sub = new BasicAssertionOutputProvider();
 
     @Test
     void sayHello() {
@@ -28,5 +29,17 @@ class BasicAssertionOutputProviderTest {
         //then
     }
 
+    @Test
+    void removesDuplicates() {
+        //given
+        //when
+        //then
+    }
 
+    @Test
+    void filtersAllAboveGivenValue() {
+        //given
+        //when
+        //then
+    }
 }

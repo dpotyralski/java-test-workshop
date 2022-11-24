@@ -28,7 +28,6 @@ class _14_JUnitStubWithMockitoTest {
     void shouldReturnCustomerStub() {
         //given
         Customer expectedCustomer = createTestCustomer();
-
         when(customerRepository.save(any())).thenReturn(expectedCustomer);
 
         //when
@@ -55,7 +54,7 @@ class _14_JUnitStubWithMockitoTest {
         when(customerRepository.findByFirstNameAndLastName(anyString(), startsWith("J"))).thenReturn(createTestCustomer());
 
         //when
-        Customer customer = customerService.findCustomer("anyString", "Jon");
+        Customer customer = customerService.findCustomer("asdsad", "Jon");
 
         //then
         assertEquals("Jon Snow", customer.getFullName());

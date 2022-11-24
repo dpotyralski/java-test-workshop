@@ -2,6 +2,8 @@ package pl.dpotyralski;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static java.util.function.Predicate.isEqual;
 import static org.awaitility.Awaitility.await;
 
@@ -12,7 +14,7 @@ class _8_AwaitilityTest {
     @Test
     void testWithAwaitility() {
         //then
-        await().until(() -> timeoutResource.getValue(), isEqual("lateValue"));
+        await().atMost(Duration.ofSeconds(10)).until(() -> timeoutResource.getValue(), isEqual("lateValue"));
     }
 
 

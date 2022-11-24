@@ -1,10 +1,12 @@
 package pl.dpotyralski;
 
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.time.Month;
@@ -13,7 +15,6 @@ import java.util.EnumSet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class _10_JUnitDataDrivenTest {
 
     OddNumberResolver oddNumberResolver = new OddNumberResolver();
@@ -22,13 +23,13 @@ class _10_JUnitDataDrivenTest {
     @ValueSource(ints = {1, 3, 5, -3, 15, Integer.MAX_VALUE})
     void shouldHaveOddNumbersForPassed(int number) {
         //expect
-        assertTrue(oddNumberResolver.isOdd(number));
+        assertTrue(oddNumberResolver.isNotOdd(number));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Lorem", "Ipsum", "Hello"})
+    @ValueSource()
 //    @NullSource
-//    @NullAndEmptySource
+    @NullAndEmptySource
     void shouldHaveFiveLengthStrings(String text) {
         //expect
         assertEquals(5, text.length());
@@ -46,9 +47,10 @@ class _10_JUnitDataDrivenTest {
 
     @ParameterizedTest
     @EnumSource(value = Month.class, names = {"JANUARY"})
-    void shouldGetOnlyFebruary(Month month) {
+    void shouldGetOnlyJanuary(Month month) {
         //given
-        int monthNumber = month.getValue();
+        Month january = Month.JANUARY;
+        int monthNumber = january.getValue();
 
         //expect
         assertTrue(monthNumber == 1);
@@ -105,10 +107,9 @@ class _10_JUnitDataDrivenTest {
     }
 
     static class OddNumberResolver {
-        boolean isOdd(int value) {
+        boolean isNotOdd(int value) {
             return value % 2 != 0;
         }
-
     }
 
 }

@@ -1,5 +1,6 @@
 package pl.dpotyralski;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class _12_JUnitDataDrivenArgumentsSourceTest {
@@ -21,8 +23,8 @@ class _12_JUnitDataDrivenArgumentsSourceTest {
         List<String> supportedLanguages = Arrays.asList("java", "c++", "typescript", "kotlin", "rust");
 
         //then
-        assertTrue(supportedLanguages.contains(language));
-//        Assertions.assertThat(supportedLanguages).contains(language);
+//        assertTrue(supportedLanguages.contains(language));
+        assertThat(supportedLanguages).contains(language);
     }
 
     static class CustomArgumentsProvider implements ArgumentsProvider {
